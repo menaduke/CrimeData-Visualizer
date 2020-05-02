@@ -1,0 +1,7 @@
+<div class="crimedata-card-container">
+  <h2>Type of Crime: {{ncicCodesDictionary[crimeData['ucr_ncic_code']]}}</h2>
+  <app-gmap
+  [lat]="crimeData.latitude"
+  [lng]="crimeData.longitude"
+  ></app-gmap>
+</div>
