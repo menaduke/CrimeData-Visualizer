@@ -19,8 +19,7 @@ import { CrimedataContainerModule } from './crimedata-container/crimedata-contai
     // my modules
     HomeModule,
     GmapModule,
-    CrimedataContainerModule
-
+    CrimedataContainerModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

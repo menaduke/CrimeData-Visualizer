@@ -1,6 +1,7 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { CrimeData } from 'src/app/models/crimedata';
-import * as ncic_codes from '../../../assets/ncic_codes.json';
+import { CrimeDataService } from 'src/app/services/crimedata.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-crimedata-card',
@@ -9,11 +10,11 @@ import * as ncic_codes from '../../../assets/ncic_codes.json';
 })
 export class CrimedataCardComponent implements OnInit {
   @Input('crimeData') crimeData: CrimeData;
-  ncicCodesDictionary = ncic_codes['default'];
-  constructor() { }
-
+  ncicCodesDictionary = this.crimeDataService.ncicCodesDictionary;
+  constructor(private router: Router, public crimeDataService: CrimeDataService ) { }
   ngOnInit(): void {
-    console.log(';crimeData', this.crimeData)
   }
-
+  routeToDetailsPage(idx: number) {
+    this.router.navigateByUrl(`crimedata-details-page/${idx}`);
+  }
 }

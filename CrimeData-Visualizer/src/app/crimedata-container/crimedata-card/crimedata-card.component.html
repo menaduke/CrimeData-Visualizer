@@ -1,5 +1,15 @@
 <div class="crimedata-card-container">
-  <h2>Type of Crime: {{ncicCodesDictionary[crimeData['ucr_ncic_code']]}}</h2>
+  <h2>Type of Crime: {{crimeData['ucr_ncic_code'] && ncicCodesDictionary[crimeData['ucr_ncic_code']] ? ncicCodesDictionary[crimeData['ucr_ncic_code']] : 'No Matching NCIC code found'}}</h2>
+  <div class="card-details-container">
+    <div>District: {{crimeData['district']}}</div>
+    <div>Date of Crime: {{crimeData['cdatetime'] | date: 'fullDate'}}</div>
+    <div class="ncic-code">NCIC-CODE: {{crimeData['ucr_ncic_code'] ? crimeData['ucr_ncic_code']: 'no ncic code'}}</div>
+    <div class="get-crime-details">
+      <span class="crimedata-details-page-link"
+      (click)="routeToDetailsPage(crimeData['index'])"
+      >CrimeData Details</span>
+    </div>
+  </div>
   <app-gmap
   [lat]="crimeData.latitude"
   [lng]="crimeData.longitude"

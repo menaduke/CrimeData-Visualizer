@@ -1,0 +1,16 @@
+<h1>CrimeData Details Page for {{this.routerIndex}},
+  <span
+  class="goback"
+  (click)="goBack()"
+  >(go back)</span></h1>
+<div class="crimedata-wrapper-container">
+  <ng-container *ngFor="let key of this.crimeDataKeys">
+    <div class="crimekeyStat">{{key}}: {{this.crimeData[key]}}</div>
+  </ng-container>
+  <app-gmap
+  [lat]="this.crimeData['latitude']"
+  [lng]="this.crimeData['longitude']"
+  >
+
+  </app-gmap>
+</div>

@@ -1,0 +1,18 @@
+.crimedata-wrapper-container {
+  max-width: 750px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.crimekeyStat {
+  font-family: Righteous;
+  font-size: 1.5rem;
+}
+
+.goback {
+  color: lightpink;
+  &:hover {
+    color: red;
+    cursor: pointer;
+  }
+}

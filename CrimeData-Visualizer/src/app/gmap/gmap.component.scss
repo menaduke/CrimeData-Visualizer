@@ -2,3 +2,9 @@
   height: 500px;
   width: 100%;
 }
+
+::ng-deep {
+  div#gmap > div:nth-child(2) {
+    display: none;
+  }
+}

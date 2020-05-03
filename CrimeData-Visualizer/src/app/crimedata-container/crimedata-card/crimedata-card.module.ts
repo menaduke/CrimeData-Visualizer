@@ -2,6 +2,8 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { CrimedataCardComponent } from './crimedata-card.component';
 import { GmapModule } from 'src/app/gmap/gmap.module';
+import { CrimedataDetailsPageModule } from '../crimedata-details-page/crimedata-details-page.module';
+import { RouterModule } from '@angular/router';
 
 
 
@@ -10,7 +12,9 @@ import { GmapModule } from 'src/app/gmap/gmap.module';
   exports: [CrimedataCardComponent],
   imports: [
     CommonModule,
-    GmapModule
+    GmapModule,
+    CrimedataDetailsPageModule,
+    RouterModule
   ]
 })
 export class CrimedataCardModule { }

@@ -1,4 +1,7 @@
-<h2>Crime Data!</h2>
+<h1>CrimeData Map (3x randomly selected from seed data)</h1>
+<h3>CrimeData Overview (summerized Data) <span
+  (click)="routeToOverView()"
+  >Click Here</span></h3>
 <ng-container *ngFor="let crimeData of this.crimeData">
   <app-crimedata-card
     [crimeData]="crimeData"

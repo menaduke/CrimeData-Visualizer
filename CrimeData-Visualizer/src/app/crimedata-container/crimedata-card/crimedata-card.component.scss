@@ -1,0 +1,27 @@
+.crimedata-card-container {
+  font-family: Righteous;
+  width: 100%;
+  margin: 1rem auto 1rem auto;
+  max-width: 500px;
+  padding: 2.5rem 3.5rem;
+  background: #38618c;
+  // margin: 1rem;
+  color: #f1faee;
+  .crimedata-details-page-link {
+    color: #f0f3bd;
+    cursor: pointer;
+    &:hover {
+      transition: color 0.3s ease-in-out;
+      color: #06d6a0;
+    }
+  }
+
+}
+.card-details-container {
+  padding-bottom: 0.5rem;
+}
+
+
+h2 {
+  font-weight: 100;
+}

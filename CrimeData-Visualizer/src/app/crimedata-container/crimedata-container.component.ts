@@ -1,9 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-
-import * as crimeData from '../../assets/crimedata.json';
-import * as ncic_codes from '../../assets/ncic_codes.json';
-
 import { CrimeData } from '../models/crimedata';
+import { CrimeDataService } from '../services/crimedata.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-crimedata-container',
@@ -11,10 +9,16 @@ import { CrimeData } from '../models/crimedata';
   styleUrls: ['./crimedata-container.component.scss']
 })
 export class CrimedataContainerComponent implements OnInit {
-  crimeData: CrimeData[] = crimeData['default'].slice(0,3);
-  ncicCodesDictionary = ncic_codes['default'];
-  constructor() { }
+  randomNumber = Math.random() * this.crimeDataService.crimeData.length;
+  randomSeedInital = this.randomNumber < 997 ? this.randomNumber : 997;
+  crimeData: CrimeData[] = this.crimeDataService.crimeData.slice(this.randomSeedInital, this.randomSeedInital + 3);
+  constructor(
+    private crimeDataService: CrimeDataService,
+    private router: Router
+  ) { }
   ngOnInit(): void {
   }
-
+  routeToOverView() {
+    this.router.navigateByUrl(`overview`);
+  }
 }

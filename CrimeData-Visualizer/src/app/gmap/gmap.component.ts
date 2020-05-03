@@ -13,15 +13,21 @@ export class GmapComponent implements OnInit, OnChanges, AfterViewInit {
   coordinates: google.maps.LatLng;
   mapOptions: google.maps.MapOptions;
   marker: google.maps.Marker;
+  observer: MutationObserver;
+  observerConfig = { attributes: true, childList: true, subtree: true };
   constructor() { }
 
   ngOnInit(): void {
+    // this.observer = new MutationObserver((mutationList, observer) => {
+    //   console.log(mutationList, observer);
+    // });
   }
 
   ngOnChanges() {
   }
   ngAfterViewInit(): void {
     this.main();
+    // this.observer.observe(this.gmap.nativeElement, this.observerConfig);
   }
 
   main() {
@@ -31,6 +37,10 @@ export class GmapComponent implements OnInit, OnChanges, AfterViewInit {
     this.createMarker();
     this.mapInitializer();
     this.setMarkerOnMap();
+
+    // setTimeout(() => {
+    //   // this.removeError();
+    // }, 2000)
   }
 
   mapInitializer(): void {
@@ -58,5 +68,12 @@ export class GmapComponent implements OnInit, OnChanges, AfterViewInit {
 
   setMarkerOnMap() {
     this.marker.setMap(this.map);
+  }
+
+  removeError() {
+    const gmapHTMLELEMENT: HTMLElement = this.gmap.nativeElement;
+    if (gmapHTMLELEMENT && gmapHTMLELEMENT.children && gmapHTMLELEMENT.children.length) {
+      gmapHTMLELEMENT.children[1]['style'].display = 'none';
+    }
   }
 }
